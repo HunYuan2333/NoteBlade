@@ -53,6 +53,28 @@ xmake build && xmake run # 构建并运行
 xmake build && xmake run nodeblade <args>
 ```
 
+## 配置 VSCode
+
+您需要配置 VSCode 才能使用。
+
+请按照以下步骤配置：
+ 1. 在 VSCode 商店搜索 `XMake`，安装 `XMake` 插件。
+ 2. 创建 `.vscode/c_cpp_properties.json` 文件，内容如下：
+     ```json
+     {
+         "configurations": [
+             {
+                 "name": "Xmake",
+                 "compileCommands": ".vscode/compile_commands.json"
+             }
+         ],
+         "version": 4
+     }
+     ```
+  3. 按下快捷键 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>，输入 `xmake update intellisense`，选择 `Xmake: UpdateIntellisense`。
+
+此后，如果 VSCode 对依赖报错，请重复第 3 步。
+
 ## API
 ### Class `VSQXReader`
 **原型**
