@@ -166,4 +166,3 @@ void NoteBlade::VSQXReader::load_tracks()
         _project.tracks_create(_track);
     }
 }
-

@@ -1,73 +1,75 @@
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="https://schema.luotianyi.dev/2023/noteblade/dict/v1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="nbdict">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="match" maxOccurs="unbounded" minOccurs="0">
-          <xs:complexType mixed="true">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+    targetNamespace="https://schema.luotianyi.dev/2023/noteblade/dict"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="nbdict">
+        <xs:complexType>
             <xs:sequence>
-              <xs:element name="condition" maxOccurs="1" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="pitch">
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:string">
-                            <xs:attribute type="xs:string" name="min" use="optional"/>
-                            <xs:attribute type="xs:string" name="max" use="optional"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="duration">
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:string">
-                            <xs:attribute type="xs:int" name="min" use="optional"/>
-                            <xs:attribute type="xs:int" name="max" use="optional"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="transform" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:string">
-                      <xs:attribute type="xs:string" name="xsampa" use="optional"/>
-                      <xs:attribute type="xs:string" name="lyric" use="optional"/>
-                      <xs:attribute type="xs:int" name="duration" use="optional"/>
-                      <xs:attribute type="xs:int" name="durationPercent" use="optional"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="linerTransform" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="point" maxOccurs="unbounded" minOccurs="2">
-                      <xs:complexType>
-                        <xs:simpleContent>
-                          <xs:extension base="xs:string">
-                            <xs:attribute type="xs:string" name="note" use="optional"/>
-                            <xs:attribute type="xs:string" name="xsampa" use="optional"/>
-                            <xs:attribute type="xs:string" name="lyric" use="optional"/>
-                            <xs:attribute type="xs:int" name="duration" use="optional"/>
-                            <xs:attribute type="xs:int" name="durationPercent" use="optional"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
+                <xs:element name="match" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="condition" maxOccurs="1" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="pitch">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="min" use="optional"/>
+                                                        <xs:attribute type="xs:string" name="max" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="duration">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:int" name="min" use="optional"/>
+                                                        <xs:attribute type="xs:int" name="max" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="transform" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="xsampa" use="optional"/>
+                                            <xs:attribute type="xs:string" name="lyric" use="optional"/>
+                                            <xs:attribute type="xs:int" name="duration" use="optional"/>
+                                            <xs:attribute type="xs:int" name="durationPercent" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="linerTransform" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="point" maxOccurs="unbounded" minOccurs="2">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute type="xs:string" name="note" use="optional"/>
+                                                        <xs:attribute type="xs:string" name="xsampa" use="optional"/>
+                                                        <xs:attribute type="xs:string" name="lyric" use="optional"/>
+                                                        <xs:attribute type="xs:int" name="duration" use="optional"/>
+                                                        <xs:attribute type="xs:int" name="durationPercent" use="optional"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="xsampa" use="optional"/>
+                        <xs:attribute type="xs:string" name="lyric" use="optional"/>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
-            <xs:attribute type="xs:string" name="xsampa" use="optional"/>
-            <xs:attribute type="xs:string" name="lyric" use="optional"/>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

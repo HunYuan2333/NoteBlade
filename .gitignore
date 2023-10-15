@@ -1,6 +1,7 @@
 # Xmake cache
 .xmake/
-.vscode/
+.vscode/**
+!.vscode/c_cpp_properties.json
 build/
 
 # MacOS Cache
