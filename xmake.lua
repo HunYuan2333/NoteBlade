@@ -1,5 +1,8 @@
 set_project("noteblade")
-set_allowedarchs("windows|x86", "macosx|arm64", "macosx|x64")
+set_defaultmode("debug")
+set_defaultarchs("windows|x86")
+set_allowedarchs("windows|x86", "windows|x64", "macosx|arm64", "macosx|x64")
+set_allowedmodes("debug", "release")
 add_rules("mode.debug", "mode.release")
 
 package("tinyxml2")
@@ -24,6 +27,13 @@ target("noteblade")
     set_kind("binary")
     add_packages("tinyxml2")
     add_files("src/*.cpp")
+    if is_mode("debug") then
+        add_defines("DEBUG")
+    end
+    if is_mode("release") then
+        add_defines("NDEBUG")
+        add_defines("RELEASE")
+    end
     if is_plat("macosx", "linux") then
         set_toolchains("clang")
         set_languages("c++17")
@@ -34,6 +44,7 @@ target("noteblade")
     end
     if is_plat("windows") then
         set_toolchains("msvc")
+        set_arch("x86")
         set_languages("c++20")
         add_cxxflags("/std:c++20 /utf-8")
         add_cxxflags("/DBUILD_TIME=\"$(shell powershell Get-Date -Format o)\"")

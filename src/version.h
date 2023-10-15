@@ -22,7 +22,7 @@ const static std::string  COPYRIGHT_TEXT = "Copyright (c) 2023 FeatherP & TCP, A
 #endif
 
 #ifdef _WIN32
-#define BUILD_PLATFORM    "Windows"
+#define BUILD_PLATFORM    "Windows_NT/" << _WIN32_WINNT
 #endif
 #ifdef  XMAKE_PLATFORM
 #define BUILD_PLATFORM    XMAKE_PLATFORM
@@ -49,6 +49,16 @@ const static std::string  COPYRIGHT_TEXT = "Copyright (c) 2023 FeatherP & TCP, A
 #define BUILD_HOSTNAME    "none"
 #endif
 
-#define BUILD_INFO        BUILD_PLATFORM << " [" << BUILD_COMPILER << "] C++" << CXX_VERSION << " " << BUILD_HOSTNAME << " " << BUILD_TIME
+#ifdef  DEBUG
+#define BUILD_MODE       "Debug"
+#endif
+#ifdef  RELEASE
+#define BUILD_MODE       "Release"
+#endif
+#ifndef BUILD_MODE
+#define BUILD_MODE       "Internal_Version"
+#endif
+
+#define BUILD_INFO       BUILD_MODE << " C++ " << CXX_VERSION << " [" << BUILD_COMPILER << "] " << BUILD_TIME << " " << BUILD_PLATFORM << " " << BUILD_HOSTNAME
 
 #endif
