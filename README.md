@@ -43,10 +43,10 @@ xmake build
 xmake build && xmake run
 
 # 如需带参数运行，请使用
-xmake build && xmake run nodeblade <args>
+xmake build && xmake run noteblade <args>
 
 # 例如
-xmake build && xmake run nodeblade --version
+xmake build && xmake run noteblade --version
 ```
 
 在 macOS 上，也可使用 LLVM Debug 工具调试：
